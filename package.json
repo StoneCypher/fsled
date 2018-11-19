@@ -1,0 +1,19 @@
+{
+  "name": "fsled",
+  "version": "0.1.0",
+  "description": "FSLed is the embeddable FSL editor and visualizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StoneCypher/fsled.git"
+  },
+  "author": "John Haugeland <stonecypher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StoneCypher/fsled/issues"
+  },
+  "homepage": "https://github.com/StoneCypher/fsled#readme"
+}
