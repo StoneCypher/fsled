@@ -7,7 +7,9 @@ import { FslEditorConfig, FslEditorHandle } from './fsled_types';
 
 import * as ace from 'brace';
 import 'brace/mode/javascript';
-import 'brace/theme/monokai';
+//import 'brace/mode/fsl';
+import 'brace/mode/jssm';
+import 'brace/theme/solarized_dark';
 
 
 
@@ -16,8 +18,8 @@ import 'brace/theme/monokai';
 function EFactory(cfg: FslEditorConfig): FslEditorHandle {
 
   const editor = ace.edit(cfg.HostId);
-        editor.getSession().setMode('ace/mode/javascript');
-        editor.setTheme('ace/theme/monokai');
+        editor.getSession().setMode('ace/mode/jssm');
+        editor.setTheme('ace/theme/solarized_dark');
 
   let Handle: FslEditorHandle = {
     Instance : editor,
