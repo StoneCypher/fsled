@@ -6,7 +6,41 @@ body {
   height: 100%;
   width: 100%;
 }
+#FslMainArea {
+  position: fixed;
+  top: 2em;
+  left: 0;
+  right: 0;
+  bottom: 2em;
+}
+#FslEditorSite,
+#FslViewerSite {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
 #FslEditorSite {
-  height: 100%;
-  width: 50%;
+  left: 0;
+  right: 50%;
+}
+#FslViewerSite {
+  right: 0;
+  left: 50%;
+  background-color: black;
+}
+#FslToolbar,
+#FslStatusBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+#FslToolbar {
+  bottom: 0;
+  height: 2em;
+  border-bottom: 1px solid #888;
+}
+#FslStatusBar {
+  top: 0;
+  height: 2em;
+  border-top: 1px solid #888;
 }
