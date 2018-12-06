@@ -4,6 +4,9 @@
   "description": "FSLed is the embeddable FSL editor and visualizer",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf build -f && mkdir build && rimraf dist -f && mkdir dist",
+    "make": "tsc",
+    "build": "npm run clean && npm run make",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
