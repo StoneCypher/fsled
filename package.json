@@ -5,10 +5,13 @@
   "main": "dist/fsled.cjs.js",
   "module": "dist/fsled.es6.js",
   "scripts": {
-    "clean": "rimraf build -f && mkdir build && rimraf dist -f && mkdir dist",
+    "postinstall": "cp -f src/ace-js/* ./node_modules/brace/mode/",
+    "clean": "rimraf build -f && mkdir build && rimraf dist -f && mkdir dist && rimraf docs -f && mkdir docs",
     "make": "rollup -c",
-    "dist": "cp build/fsled.es6.js dist/ && cp build/fsled.cjs.js dist/",
-    "build": "npm run clean && npm run make && npm run dist",
+    "less": "lessc src/less/fsled.less > dist/fsled.css",
+    "dist": "cp build/fsled.es6.js dist/ && cp build/fsled.iife.js dist/ && cp build/fsled.cjs.js dist/",
+    "docs": "cp -r dist/* docs/ && cp src/html/index.html docs/",
+    "build": "npm run clean && npm run make && npm run less && npm run dist && npm run docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +31,7 @@
     "nyc": "^13.1.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.4",
+    "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-typescript2": "^0.18.0",
     "typescript": "^3.2.1"

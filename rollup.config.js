@@ -1,7 +1,7 @@
 
 import nodeResolve from 'rollup-plugin-node-resolve';
 import typescript  from 'rollup-plugin-typescript2';
-//import commonjs    from 'rollup-plugin-commonjs';
+import commonjs    from 'rollup-plugin-commonjs';
 
 const pkg = require('./package');
 
@@ -20,9 +20,11 @@ const es6config = {
 
     typescript(),
 
-    // commonjs({
-    //   namedExports : {},
-    // }),
+    commonjs({
+      namedExports : {
+        'node_modules/brace/index.js': ['edit']
+      },
+    }),
 
     nodeResolve({
       module         : true,
@@ -35,6 +37,10 @@ const es6config = {
   ]
 
 };
+
+
+
+
 
 const cjsconfig = {
 
@@ -51,9 +57,11 @@ const cjsconfig = {
 
     typescript(),
 
-    // commonjs({
-    //   namedExports : {},
-    // }),
+    commonjs({
+      namedExports : {
+        'node_modules/brace/index.js': ['edit']
+      },
+    }),
 
     nodeResolve({
       module         : true,
@@ -67,4 +75,45 @@ const cjsconfig = {
 
 };
 
-export default [ es6config, cjsconfig ];
+
+
+
+
+const iifeconfig = {
+
+  input     : 'src/ts/fsled.ts',
+
+  output    : {
+    file      : 'build/fsled.iife.js',
+    format    : 'iife',
+    name      : 'fsled',
+    sourcemap : true,
+  },
+
+  plugins   : [
+
+    typescript(),
+
+    commonjs({
+      namedExports : {
+        'node_modules/brace/index.js': ['edit']
+      },
+    }),
+
+    nodeResolve({
+      module         : true,
+      jsnext         : true,
+      browser        : true,
+      extensions     : [ '.js', '.json', '.ts' ],
+      preferBuiltins : false
+    })
+
+  ]
+
+};
+
+
+
+
+
+export default [ es6config, cjsconfig, iifeconfig ];
