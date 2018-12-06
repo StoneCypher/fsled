@@ -1,17 +1,15 @@
 
 import { FslEditorConfig, FslEditorHandle } from './fsled_types';
+import { EFactory }                         from './Editor';
 
-let Handle: FslEditorHandle = { Host: undefined };
+let Handle: FslEditorHandle = undefined;
 
 
 
 
 
 function bootstrap(cfg: FslEditorConfig): FslEditorHandle {
-
-  Handle.Host = cfg.Host;
-  return Handle;
-
+  return EFactory(cfg);
 }
 
 

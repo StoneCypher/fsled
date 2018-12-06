@@ -1,11 +1,12 @@
 
 interface FslEditorConfig {
-  Title : string;
-  Host  : HTMLElement;
+  Title? : string;
+  HostId : string;
 }
 
 interface FslEditorHandle {
-  Host  : HTMLElement;
+  Instance : AceAjax.Ace;
+  HostId   : string;
 }
 
 
