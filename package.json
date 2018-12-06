@@ -2,11 +2,13 @@
   "name": "fsled",
   "version": "0.1.0",
   "description": "FSLed is the embeddable FSL editor and visualizer",
-  "main": "index.js",
+  "main": "dist/fsled.cjs.js",
+  "module": "dist/fsled.es6.js",
   "scripts": {
     "clean": "rimraf build -f && mkdir build && rimraf dist -f && mkdir dist",
-    "make": "tsc",
-    "build": "npm run clean && npm run make",
+    "make": "rollup -c",
+    "dist": "cp build/fsled.es6.js dist/ && cp build/fsled.cjs.js dist/",
+    "build": "npm run clean && npm run make && npm run dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +28,8 @@
     "nyc": "^13.1.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.4",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-typescript2": "^0.18.0",
     "typescript": "^3.2.1"
   }
 }
