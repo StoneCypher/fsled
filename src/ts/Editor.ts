@@ -20,6 +20,7 @@ function EFactory(cfg: FslEditorConfig): FslEditorHandle {
   const editor = ace.edit(cfg.HostId);
         editor.getSession().setMode('ace/mode/jssm');
         editor.setTheme('ace/theme/solarized_dark');
+        editor.setOptions({ enableBasicAutocompletion: true });
 
   let Handle: FslEditorHandle = {
     Instance : editor,

@@ -21324,6 +21324,7 @@ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgb
       const editor = brace_1(cfg.HostId);
       editor.getSession().setMode('ace/mode/jssm');
       editor.setTheme('ace/theme/solarized_dark');
+      editor.setOptions({ enableBasicAutocompletion: true });
       let Handle = {
           Instance: editor,
           HostId: cfg.HostId
